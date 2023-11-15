@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<cprj schemaVersion="1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CPRJ.xsd">
+  <created timestamp="2023-11-15T14:22:35" tool="csolution 1.7.0"/>
+
+  <info isLayer="false">
+    <description>Automatically generated project</description>
+  </info>
+
+  <packages>
+    <package name="CMSIS-DSP" vendor="ARM" version="1.14.4:1.14.4"/>
+    <package name="CMSIS-NN" vendor="ARM" version="4.0.0:4.0.0"/>
+    <package name="CMSIS" vendor="ARM" version="5.9.0:5.9.0"/>
+    <package name="V2M_MPS3_SSE_300_BSP" vendor="ARM" version="1.3.0:1.3.0"/>
+    <package name="ml-embedded-eval-kit-uc-api" vendor="ARM" version="22.8.0-Beta:22.8.0-Beta"/>
+    <package name="ethos-u-core-driver" vendor="Arm" version="1.22.8:1.22.8"/>
+    <package name="flatbuffers" vendor="tensorflow" version="1.22.8:1.22.8"/>
+    <package name="gemmlowp" vendor="tensorflow" version="1.22.8:1.22.8"/>
+    <package name="kissfft" vendor="tensorflow" version="1.22.8:1.22.8"/>
+    <package name="ruy" vendor="tensorflow" version="1.22.8:1.22.8"/>
+    <package name="tensorflow-lite-micro" vendor="tensorflow" version="1.22.8:1.22.8"/>
+  </packages>
+
+  <compilers>
+    <compiler name="AC6" version="6.20.0"/>
+  </compilers>
+
+  <target Ddsp="DSP" Dfpu="DP_FPU" Dmve="FP_MVE" Dname="SSE-300-MPS3" Dsecure="Non-secure" Dtz="TZ" Dvendor="ARM:82">
+    <output intdir="../tmp/object-detection/AVH-SSE-300-U55/Debug" name="object-detection" outdir="../out/object-detection/AVH-SSE-300-U55/Debug" rtedir="RTE" type="exe"/>
+    <options debug="on" optimize="none"/>
+    <cxxflags add="-include &quot;RTE_Components.h&quot;" compiler="AC6"/>
+    <ldflags compiler="AC6" file="linker/mps3-sse-300.sct"/>
+    <defines>ACTIVATION_BUF_SZ=532480;ETHOSU55</defines>
+  </target>
+
+  <components>
+    <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.6.0"/>
+    <component Cclass="CMSIS" Cgroup="DSP" Cvariant="Source" Cvendor="ARM" Cversion="1.14.4"/>
+    <component Cclass="CMSIS" Cgroup="NN Lib" Cvendor="ARM" Cversion="4.0.0"/>
+    <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.2.0">
+      <file attr="config" category="header" name="Board/Platform/platform_base_address.h" version="1.1.2"/>
+    </component>
+    <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0">
+      <file attr="config" category="header" name="CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h" version="1.1.1"/>
+      <file attr="config" category="header" name="CMSIS_Driver/Config/RTE_Device.h" version="1.1.0"/>
+      <file attr="config" category="header" name="Device/Config/Baremetal/device_cfg.h" version="1.1.3"/>
+      <file attr="config" category="header" name="Device/Include/region_defs.h" version="1.0.0"/>
+      <file attr="config" category="header" name="Device/Include/region_limits.h" version="1.0.0"/>
+      <file attr="config" category="header" name="Device/Include/system_SSE300MPS3.h" version="1.1.1"/>
+      <file attr="config" category="linkerScript" name="Device/Source/armclang/fvp_sse300_mps3_s.sct" version="1.1.0"/>
+      <file attr="config" category="source" name="Device/Source/startup_fvp_sse300_mps3.c" version="1.1.1"/>
+      <file attr="config" category="source" name="Device/Source/system_SSE300MPS3.c" version="1.1.1"/>
+    </component>
+    <component Cclass="ML Eval Kit" Cgroup="Common" Csub="API" Cvendor="ARM" Cversion="1.0.0"/>
+    <component Cclass="ML Eval Kit" Cgroup="Common" Csub="Log" Cvendor="ARM" Cversion="1.0.0"/>
+    <component Cclass="ML Eval Kit" Cgroup="Common" Csub="Math" Cvendor="ARM" Cversion="1.0.0"/>
+    <component Cclass="ML Eval Kit" Cgroup="Vision" Csub="Object detection" Cvendor="ARM" Cversion="1.0.0"/>
+    <component Cclass="Native Driver" Cgroup="SysCounter" Cvendor="ARM" Cversion="1.1.0"/>
+    <component Cclass="Native Driver" Cgroup="SysTimer" Cvendor="ARM" Cversion="1.1.0"/>
+    <component Cclass="Native Driver" Cgroup="Timeout" Cvendor="ARM" Cversion="1.0.0"/>
+    <component Cclass="Machine Learning" Cgroup="NPU Support" Csub="Ethos-U Driver" Cvariant="Generic U55" Cvendor="Arm" Cversion="1.22.8"/>
+    <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.8"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.8"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.8"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.8"/>
+    <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.8">
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/debug_log.cpp" version="1.22.8"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/micro_time.cpp" version="1.22.8"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/system_setup.cpp" version="1.22.8"/>
+      <defines>CMSIS_DEVICE_ARM_CORTEX_M_XX_HEADER_FILE=CMSIS_device_header</defines>
+    </component>
+    <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="Ethos-U" Cvendor="tensorflow" Cversion="1.22.8"/>
+    <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Testing" Cvendor="tensorflow" Cversion="1.22.8"/>
+  </components>
+
+  <files>
+    <group name="Use Case">
+      <file category="header" name="include/InputFiles.hpp"/>
+      <file category="sourceCpp" name="src/InputFiles.cpp"/>
+      <file category="sourceCpp" name="src/sample_image.cpp"/>
+      <file category="sourceCpp" name="src/yolo-fastest_192_face_v4_vela_H256.tflite.cpp"/>
+      <file category="sourceCpp" name="src/main_video.cpp"/>
+    </group>
+    <group name="VSI">
+      <file category="header" name="../vsi/include/arm_vsi.h"/>
+      <file category="header" name="../vsi/video/include/video_drv.h"/>
+      <file category="sourceC" name="../vsi/video/source/video_drv.c"/>
+    </group>
+    <group name="Device Files">
+      <file category="linkerScript" name="linker/mps3-sse-300.sct"/>
+    </group>
+    <group name="Common">
+      <file category="header" name="../common/include/BufAttributes.hpp"/>
+      <file category="header" name="../common/include/ethosu_mem_config.h"/>
+    </group>
+    <group name="Retarget">
+      <file category="sourceC" name="../device/corstone/src/retarget.c"/>
+      <file category="sourceC" name="../device/corstone/src/uart_cmsdk_apb.c"/>
+      <file category="sourceCpp" name="../device/corstone/src/BoardInit.cpp"/>
+      <file category="header" name="../device/corstone/src/uart_config.h"/>
+      <file category="header" name="../device/corstone/src/uart_stdout.h"/>
+      <file category="header" name="../device/corstone/include/BoardInit.hpp"/>
+    </group>
+  </files>
+</cprj>
+

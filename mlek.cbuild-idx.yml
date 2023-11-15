@@ -1,0 +1,13 @@
+build-idx:
+  generated-by: csolution version 1.7.0
+  csolution: mlek.csolution.yml
+  cprojects:
+    - cproject: object-detection/object-detection.cproject.yml
+      clayers:
+        - clayer: common/common.clayer.yml
+        - clayer: device/corstone/corstone-device.clayer.yml
+        - clayer: device/alif-ensemble/alif-ensemble-E7-device.clayer.yml
+  cbuilds:
+    - cbuild: object-detection/object-detection.Debug+AVH-SSE-300-U55.cbuild.yml
+      project: object-detection
+      configuration: .Debug+AVH-SSE-300-U55
